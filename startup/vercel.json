@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "../serverbrow/serverbrow.js", // Kök dizinden relatif yol
+      "src": "../serverbrow/serverbrow.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "../serverbrow/serverbrow.js" // Aynı yol
+      "dest": "../serverbrow/serverbrow.js"
     }
   ]
 }
