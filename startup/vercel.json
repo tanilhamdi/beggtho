@@ -2,18 +2,18 @@
   "version": 2,
   "builds": [
     {
-      "src": "package.json",
-      "use": "@vercel/static"
+      "src": "serverbrow.js",
+      "use": "@vercel/node"
     },
     {
-      "src": "../serverbrow/serverbrow.js",
-      "use": "@vercel/node"
+      "src": "package.json",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "../serverbrow/serverbrow.js"
+      "dest": "serverbrow.js"
     },
     {
       "src": "/(.*)",
