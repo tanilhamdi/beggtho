@@ -2,6 +2,10 @@
   "version": 2,
   "builds": [
     {
+      "src": "package.json",
+      "use": "@vercel/static"
+    },
+    {
       "src": "../serverbrow/serverbrow.js",
       "use": "@vercel/node"
     }
@@ -10,6 +14,10 @@
     {
       "src": "/api/(.*)",
       "dest": "../serverbrow/serverbrow.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/dist/$1"
     }
   ]
 }
