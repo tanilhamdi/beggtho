@@ -20,12 +20,7 @@ app.post('/api/send', (req, res) => {
   res.json(newMessage);
 });
 
-app.listen(3000, '0.0.0.0', () => {
-  console.log("Listening 3000 port");
-});
-
-
-
+module.exports = app;
 
 
 

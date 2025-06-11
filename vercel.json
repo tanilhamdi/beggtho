@@ -2,23 +2,18 @@
   "version": 2,
   "builds": [
     {
-      "src": "startup/index.html",  
-      "use": "@vercel/static-build",
-      "config": { "outputDirectory": "dist" }
+      "src": "server.js",
+      "use": "@vercel/node"
     },
     {
-      "src": "serverbrow/serverbrow.js",    
-      "use": "@vercel/node"
+      "src": "package.json",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",       
-      "dest": "serverbrow/serverbrow.js" 
-    },
-    {
-      "src": "/(.*)",           
-      "dest": "startup/index.html" 
+      "src": "/api/(.*)",
+      "dest": "/server.js"
     }
   ]
 }
