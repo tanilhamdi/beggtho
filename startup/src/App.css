@@ -1,0 +1,112 @@
+#root {
+  max-width: 1920px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  /* Added to position .chat relative to #root */
+}
+
+.tht {
+  color: #f95959;
+  margin: -50px;
+  font-size: 23px;
+}
+
+#sendbtn {
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  background-color: #455d7a;
+  /* Example color */
+  color: white;
+  /* Example text color */
+}
+
+#inputbox {
+  width: 400px;
+  height: 50px;
+  outline: none;
+  border: none;
+  font-size: 21px;
+  padding-left: 30px;
+  border-radius: 30px;
+  background-color: #e3e3e3;
+  transition: 0.3s;
+}
+
+#inputbox:hover {
+  background-color: #b5b5b5;
+  width: 500px;
+}
+
+#inputbox:focus {
+  width: 500px;
+}
+
+#inputbox:hover~.buttons-container .btns,
+#inputbox:focus~.buttons-container .btns {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+}
+
+.btns {
+  outline: none;
+  border-radius: 20px;
+  margin-top: 10px;
+  width: 80px;
+  height: 80px;
+  background-color: #455d7a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease;
+}
+
+.btns:focus {
+  outline: none;
+  border-radius: 25px;
+}
+
+img {
+  width: 70px;
+  height: auto;
+}
+
+#inputbox:focus::placeholder {
+  color: transparent;
+}
+
+body {
+  background-color: #233142;
+}
+
+#msgbox {
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+}
+
+.sendbtn {
+  margin: 5px;
+  font-size: 10px;
+}
+
+.chat {
+  margin: 10px;
+  border-radius: 25px;
+  background-color: gray;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 25px;
+}
