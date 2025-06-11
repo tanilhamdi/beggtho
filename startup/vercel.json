@@ -8,7 +8,7 @@
     {
       "src": "package.json",
       "use": "@vercel/static",
-      "config": { "distDir": "dist" } // Vite build çıktısı
+      "config": { "distDir": "dist" }
     }
   ],
   "routes": [
@@ -18,7 +18,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/dist/$1" // Frontend’i yönlendir
+      "dest": "/dist/$1"
     }
   ]
 }
