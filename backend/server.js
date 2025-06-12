@@ -4,11 +4,15 @@ const app = express();
 const port = process.env.PORT || 4000;
 
 app.use(express.json());
-app.use(cors({ origin: '*' })); // Netlify için tüm origin’lere izin (geliştirme)
+app.use(cors()); // Netlify için tüm origin’lere izin (geliştirme)
 
 const messages = [
   { name: 'unram', message: 'cemre was my angle...' },
 ];
+
+app.get('/', (req, res) => {
+  res.send('Hello from the server!');
+}
 
 app.get('/api/chat', (req, res) => {
   res.json(messages);
