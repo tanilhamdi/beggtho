@@ -71,7 +71,7 @@ function App() {
           console.log("Fetched data in interval:", data);
         })
         .catch((error) => console.error("Fetch error:", error));
-    }, 10000); // Fetch every 10 seconds
+    }, 5000); // Fetch every 5 seconds
   }, []);
 
   const sendMessage = async () => {
