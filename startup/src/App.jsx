@@ -32,7 +32,7 @@ function App() {
 
   useEffect(() => {
     const handleKeyDown = (event) => {
-      if (event.key === 'Enter') {
+      if (event.key === 'Enter' && search.trim() !== '') {
         searchGoogle(search);
       }
     };
