@@ -64,7 +64,7 @@ function App() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      fetch("https://beggtho.vercel.app/api/chat")
+      fetch("https://beggtho-server.onrender.com/api/chat")
         .then((res) => res.json())
         .then((data) => {
           setMessages(data);
@@ -76,7 +76,7 @@ function App() {
 
   const sendMessage = async () => {
     try {
-      const response = await fetch("https://beggtho.vercel.app/api/send", {
+      const response = await fetch("https://beggtho-server.onrender.com/api/send", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: sentmes, name: "Anonim" }),

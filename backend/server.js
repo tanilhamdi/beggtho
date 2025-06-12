@@ -25,4 +25,6 @@ app.post('/api/send', (req, res) => {
   res.json(newMessage);
 });
 
+app.listen(port, () => { console.log(`Server is running on ${port}`); });
+
 module.exports = app;
