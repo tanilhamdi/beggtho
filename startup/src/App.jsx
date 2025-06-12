@@ -53,14 +53,26 @@ function App() {
         setMessages(data);
       })
       .catch((error) => console.error("Fetch error:", error));
-  }, [messages]);
+  }, []);
 
   useEffect(() => {
     // Scroll to the bottom of the chat when messages change
     if (chatRef.current) {
       chatRef.current.scrollTop = chatRef.current.scrollHeight;
     }
-  }, [messages]);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      fetch("https://beggtho.vercel.app/api/chat")
+        .then((res) => res.json())
+        .then((data) => {
+          setMessages(data);
+          console.log("Fetched data in interval:", data);
+        })
+        .catch((error) => console.error("Fetch error:", error));
+    }, 5000); // Fetch every 5 seconds
+  }, []);
 
   const sendMessage = async () => {
     try {
