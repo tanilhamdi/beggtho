@@ -51,7 +51,7 @@ function App() {
       .then((data) => {
         setMessages(data);
       })
-  }, [messages]);
+  }, []);
 
   const sendMessage = async () => {
     try {
