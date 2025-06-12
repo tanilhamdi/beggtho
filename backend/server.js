@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
+const port = process.env.PORT || 4000;
 
 app.use(express.json());
 app.use(cors({ origin: '*' })); // Netlify için tüm origin’lere izin (geliştirme)
@@ -20,5 +21,8 @@ app.post('/api/send', (req, res) => {
   res.json(newMessage);
 });
 
-// Netlify için exports
+app.listen(port, () => {
+  console.log('Server is running on port 3000');
+});
+
 exports.handler = app;
