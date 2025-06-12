@@ -3,7 +3,7 @@ const cors = require('cors');
 const app = express();
 
 app.use(express.json());
-app.use(cors()); // CORS ekleniyor
+app.use(cors());
 
 const messages = [
   { name: 'unram', message: 'cemre was my angle...' },
