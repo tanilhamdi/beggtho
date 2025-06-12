@@ -7,7 +7,6 @@ app.use(cors(
   {
     origin: 'https://beggtho.vercel.app',
     methods: ['GET', 'POST'],
-    credentials: true
   }
 ));
 
