@@ -17,7 +17,7 @@ const messages = [
 
 api.get('/', (req, res) => {
   res.send('Server is running');
-}); 1
+});
 
 app.get('/api/chat', (req, res) => {
   res.json(messages);
