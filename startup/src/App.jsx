@@ -43,7 +43,7 @@ function App() {
   }, [search]);
 
   useEffect(() => {
-    fetch("https://beggtho-server.onrender.com/api/chat")
+    fetch("https://beggtho.vercel.app/api/chat")
       .then((res) => {
         console.log("Fetch status:", res.status);
         return res.json();
@@ -64,7 +64,7 @@ function App() {
 
   const sendMessage = async () => {
     try {
-      const response = await fetch("https://beggtho-server.onrender.com/api/send", {
+      const response = await fetch("https://beggtho.vercel.app/api/send", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: sentmes, name: "Anonim" }),
