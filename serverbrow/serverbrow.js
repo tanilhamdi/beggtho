@@ -15,7 +15,7 @@ const messages = [
   { name: 'unram', message: 'cemre was my angle...' },
 ];
 
-api.get('/', (req, res) => {
+app.get('/', (req, res) => {
   res.send('Server is running');
 });
 
