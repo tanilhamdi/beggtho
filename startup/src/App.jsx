@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './App.css';
 
 function Inputbox({ value, className, onChange, id, placeholder, style }) {
@@ -9,7 +9,7 @@ function Inputbox({ value, className, onChange, id, placeholder, style }) {
 
 function ShortButton({ src, className, url }) {
   const handleClick = () => {
-    window.location.href = url; // Aynı sekmede açar
+    window.location.href = url;
   };
 
   return (
@@ -22,13 +22,14 @@ function ShortButton({ src, className, url }) {
 function searchGoogle(query) {
   const encodedQuery = encodeURIComponent(query);
   const googleSearchUrl = `https://www.google.com/search?q=${encodedQuery}`;
-  window.location.href = googleSearchUrl; // Google aramasını da aynı sekmede açar
+  window.location.href = googleSearchUrl;
 }
 
 function App() {
   const [search, setSearch] = useState('');
   const [messages, setMessages] = useState([]);
   const [sentmes, setSentmes] = useState('');
+  const chatRef = useRef(null); // Reference to the chat container
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -38,25 +39,27 @@ function App() {
     };
 
     document.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-    };
+    return () => document.removeEventListener('keydown', handleKeyDown);
   }, [search]);
 
   useEffect(() => {
     fetch("https://beggtho-server.onrender.com/api/chat")
       .then((res) => {
-        console.log("Fetch status:", res.status); // Debug: Yanıt durumunu logla
+        console.log("Fetch status:", res.status);
         return res.json();
       })
       .then((data) => {
-        console.log("Fetched data:", data); // Debug: Gelen veriyi logla
+        console.log("Fetched data:", data);
         setMessages(data);
       })
-      .catch((error) => {
-        console.error("Fetch error:", error); // Debug: Hata varsa logla
-      });
+      .catch((error) => console.error("Fetch error:", error));
+  }, [messages]);
+
+  useEffect(() => {
+    // Scroll to the bottom of the chat when messages change
+    if (chatRef.current) {
+      chatRef.current.scrollTop = chatRef.current.scrollHeight;
+    }
   }, [messages]);
 
   const sendMessage = async () => {
@@ -66,13 +69,13 @@ function App() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: sentmes, name: "Anonim" }),
       });
-      console.log("Send response status:", response.status); // Debug: Yanıt durumunu logla
+      console.log("Send response status:", response.status);
       const data = await response.json();
-      console.log("Send data:", data); // Debug: Gelen veriyi logla
+      console.log("Send data:", data);
       setMessages([...messages, data]);
       setSentmes('');
     } catch (error) {
-      console.error("sendMessage hatasi:", error); // Debug: Hata varsa logla
+      console.error("sendMessage hatasi:", error);
     }
   };
 
@@ -97,21 +100,20 @@ function App() {
           src="https://png.co.ke/wp-content/uploads/2024/05/CITYPNG.COMNetflix-Vector-Flat-Logo-886x885-1.png"
           url="https://www.netflix.com"
         />
-        <span className='chat'>
+        <div className='chat' ref={chatRef}>
           {messages.map((item, index) => (
             <div key={index} style={{ display: 'flex', gap: '5px' }}>
               <span>
-                {item.name}:
-                {item.message}
+                {item.name}: {item.message}
                 <br />
               </span>
             </div>
           ))}
-          <input value={sentmes} id='msgbox' onChange={e => setSentmes(e.target.value)}></input>
+          <input value={sentmes} id='msgbox' onChange={e => setSentmes(e.target.value)} />
           <button className='sendbtn' onClick={sendMessage}>send</button>
-        </span>
+        </div>
       </div>
-    </div >
+    </div>
   );
 }
 
