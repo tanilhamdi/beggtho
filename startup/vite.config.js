@@ -8,7 +8,7 @@ export default defineConfig({
     strictPort: false,
     proxy: {
       '/api': {
-        target: 'https://beggtho-server-2sgz3ymvs-unrams-projects.vercel.app', // Yerel Node.js sunucu
+        target: 'https://beggtho-server.vercel.app', // Yerel Node.js sunucu
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },

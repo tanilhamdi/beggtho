@@ -46,7 +46,7 @@ function App() {
   }, [search]);
 
   useEffect(() => {
-    fetch("https://beggtho-server-2sgz3ymvs-unrams-projects.vercel.app/api/chat")
+    fetch("https://beggtho-server.vercel.app/api/chat")
       .then((res) => res.json())
       .then((data) => {
         setMessages(data);
@@ -55,7 +55,7 @@ function App() {
 
   const sendMessage = async () => {
     try {
-      const response = await fetch("https://beggtho-server-2sgz3ymvs-unrams-projects.vercel.app/api/chat", {
+      const response = await fetch("https://beggtho-server.vercel.app/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json", },
         body: JSON.stringify({ message: sentmes, name: "Anonim" }),
