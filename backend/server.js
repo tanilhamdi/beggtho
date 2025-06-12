@@ -12,7 +12,7 @@ const messages = [
 
 app.get('/', (req, res) => {
   res.send('Hello from the server!');
-}
+});
 
 app.get('/api/chat', (req, res) => {
   res.json(messages);
