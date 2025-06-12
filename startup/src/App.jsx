@@ -30,7 +30,6 @@ function App() {
   const [messages, setMessages] = useState([]);
   const [sentmes, setSentmes] = useState('');
 
-
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.key === 'Enter') {
@@ -47,27 +46,35 @@ function App() {
 
   useEffect(() => {
     fetch("https://beggtho-server.vercel.app/api/chat")
-      .then((res) => res.json())
+      .then((res) => {
+        console.log("Fetch status:", res.status); // Debug: Yanıt durumunu logla
+        return res.json();
+      })
       .then((data) => {
+        console.log("Fetched data:", data); // Debug: Gelen veriyi logla
         setMessages(data);
       })
+      .catch((error) => {
+        console.error("Fetch error:", error); // Debug: Hata varsa logla
+      });
   }, []);
 
   const sendMessage = async () => {
     try {
       const response = await fetch("https://beggtho-server.vercel.app/api/send", {
         method: "POST",
-        headers: { "Content-Type": "application/json", },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: sentmes, name: "Anonim" }),
       });
+      console.log("Send response status:", response.status); // Debug: Yanıt durumunu logla
       const data = await response.json();
+      console.log("Send data:", data); // Debug: Gelen veriyi logla
       setMessages([...messages, data]);
       setSentmes('');
     } catch (error) {
-      console.error("sendMessage hatasi: ", error);
+      console.error("sendMessage hatasi:", error); // Debug: Hata varsa logla
     }
-  }
-
+  };
 
   return (
     <div>

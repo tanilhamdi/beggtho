@@ -3,12 +3,7 @@ const cors = require('cors');
 const app = express();
 
 app.use(express.json());
-app.use(cors(
-  {
-    origin: 'https://beggtho.vercel.app',
-    methods: ['GET', 'POST'],
-  }
-));
+app.use(cors());
 
 const messages = [
   { name: 'unram', message: 'cemre was my angle...' },
