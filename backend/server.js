@@ -25,8 +25,5 @@ app.post('/api/send', (req, res) => {
   res.json(newMessage);
 });
 
-app.listen(port, () => {
-  console.log('Server is running on port 3000');
-});
 
 exports.handler = app;
