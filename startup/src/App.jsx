@@ -55,7 +55,7 @@ function App() {
 
   const sendMessage = async () => {
     try {
-      const response = await fetch("https://beggtho-server.vercel.app/api/chat", {
+      const response = await fetch("https://beggtho-server.vercel.app/api/send", {
         method: "POST",
         headers: { "Content-Type": "application/json", },
         body: JSON.stringify({ message: sentmes, name: "Anonim" }),
