@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "serverbrow.js",
+      "src": "*.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "serverbrow.js"
+      "src": "/(.*)",
+      "dest": "/"
     }
   ]
 }
