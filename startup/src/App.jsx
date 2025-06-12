@@ -57,7 +57,7 @@ function App() {
       .catch((error) => {
         console.error("Fetch error:", error); // Debug: Hata varsa logla
       });
-  }, []);
+  }, [messages]);
 
   const sendMessage = async () => {
     try {
