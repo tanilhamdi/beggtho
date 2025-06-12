@@ -15,6 +15,10 @@ const messages = [
   { name: 'unram', message: 'cemre was my angle...' },
 ];
 
+api.get('/', (req, res) => {
+  res.send('Server is running');
+}); 1
+
 app.get('/api/chat', (req, res) => {
   res.json(messages);
 });
