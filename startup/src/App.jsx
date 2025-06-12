@@ -3,7 +3,7 @@ import './App.css';
 
 function Inputbox({ value, className, onChange, id, placeholder, style }) {
   return (
-    <input value={value || ''} className={className} style={style} onChange={onChange} id={id} placeholder={placeholder} />
+    <input className={className} style={style} onChange={onChange} id={id} placeholder={placeholder} />
   );
 }
 
@@ -107,11 +107,11 @@ function App() {
               </span>
             </div>
           ))}
-          <Inputbox value={sentmes} id="msgbox" onChange={(e) => setSentmes(e.target.value)} />
+          <input value={sentmes} id='msgbox' onChange={e => setSentmes(e.target.value)}></input>
           <button className='sendbtn' onClick={sendMessage}>send</button>
         </span>
       </div>
-    </div>
+    </div >
   );
 }
 
