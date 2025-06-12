@@ -25,5 +25,4 @@ app.post('/api/send', (req, res) => {
   res.json(newMessage);
 });
 
-
-exports.handler = app;
+module.exports = app;
