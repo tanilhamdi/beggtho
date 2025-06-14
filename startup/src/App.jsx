@@ -93,6 +93,7 @@ function App() {
 
   return (
     <div>
+      <title>BeggTho</title>
       <div className="tht">
         <h1>BEGGTHO?</h1>
       </div>
