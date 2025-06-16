@@ -9,7 +9,6 @@ dotenv.config();
 
 const dbURI = process.env.MONGO_URI || 'mongodb://localhost:27017/chat-app'; // Fallback to local MongoDB if MONGO_URI is not set
 
-dotenv.config();
 
 if (!process.env.MONGO_URI) { // Check the env variable itself for clarity
   console.error('Hata: MONGO_URI ortam değişkeni tanımlanmamış. Lütfen .env dosyasını kontrol edin.');
@@ -35,26 +34,34 @@ const messagesSchema = mongoose.Schema({
 
 const Messagesdb = mongoose.model("Message", messagesSchema, "messages");
 
-const messages = new Messagesdb([
+const messages = new Messagesdb(
   { name: 'system', message: "System is workin''''" },
-]);
+);
 
 app.get('/', (req, res) => {
   res.send('Hello from the server!');
 });
 
 app.get('/api/chat', async (req, res) => {
-  const savedChat = await messages.save();
-  console.log("Saved chat is: ", savedChat);
   res.json(messages);
 });
 
 app.post('/api/send', (req, res) => {
-  const newMessage = req.body;
-  messages.push(newMessage);
-  console.log('Alınan:', newMessage);
-  res.json(newMessage);
+  const { name, message } = req.body;
 });
 
+const newMessage = new Messagesdb({
+  name,
+  message
+});
+
+try {
+  console.log('Alınan:', newMessage);
+  const savedChat = messages.save();
+  console.log("Saved chat is: ", savedChat);
+} catch (error) {
+  console.error("Error saving chat:", error);
+  res.status(500).json({ error: 'Failed to save message' });
+}
 
 export default app;
