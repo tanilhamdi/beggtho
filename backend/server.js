@@ -44,7 +44,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/chat', async (req, res) => {
-  const savedChat = await chat.save();
+  const savedChat = await messages.save();
   console.log("Saved chat is: ", savedChat);
   res.json(messages);
 });
