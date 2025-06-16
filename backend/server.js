@@ -29,13 +29,14 @@ mongoose.connect(dbURI)
 
 const messagesSchema = mongoose.Schema({
   name: { type: String, required: true },
-  message: { type: String, required: true }
+  message: { type: String, required: true },
+  timestamp: { type: Date, default: Date.now }
 });
 
 const Messagesdb = mongoose.model("Message", messagesSchema, "messages");
 
 const messages = new Messagesdb(
-  { name: 'system', message: "System is workin''''" },
+  { name: 'system', message: "System is workin''''", timestamp: new Date() },
 );
 
 app.get('/', (req, res) => {
@@ -43,7 +44,8 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api/chat', async (req, res) => {
-  res.json(messages);
+  const allMessages = await Messagesdb.find().sort({ timestamp: 1 });
+  res.json(allMessages);
 });
 
 app.post('/api/send', (req, res) => {
@@ -56,7 +58,7 @@ app.post('/api/send', (req, res) => {
 
   try {
     console.log('Alınan:', newMessage);
-    const savedChat = messages.save();
+    const savedChat = newMessage.save();
     console.log("Saved chat is: ", savedChat);
   } catch (error) {
     console.error("Error saving chat:", error);

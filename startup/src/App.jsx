@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import './App.css';
 
-function Inputbox({ value, className, onChange, id, placeholder, style }) {
+function Inputbox({ className, onChange, id, placeholder, style }) {
   return (
     <input className={className} style={style} onChange={onChange} id={id} placeholder={placeholder} />
   );
