@@ -48,20 +48,20 @@ app.get('/api/chat', async (req, res) => {
 
 app.post('/api/send', (req, res) => {
   const { name, message } = req.body;
+
+  const newMessage = new Messagesdb({
+    name,
+    message
+  });
+
+  try {
+    console.log('Alınan:', newMessage);
+    const savedChat = messages.save();
+    console.log("Saved chat is: ", savedChat);
+  } catch (error) {
+    console.error("Error saving chat:", error);
+    res.status(500).json({ error: 'Failed to save message' });
+  }
+
 });
-
-const newMessage = new Messagesdb({
-  name,
-  message
-});
-
-try {
-  console.log('Alınan:', newMessage);
-  const savedChat = messages.save();
-  console.log("Saved chat is: ", savedChat);
-} catch (error) {
-  console.error("Error saving chat:", error);
-  res.status(500).json({ error: 'Failed to save message' });
-}
-
 export default app;
