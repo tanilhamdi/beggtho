@@ -62,7 +62,7 @@ app.post('/api/send', async (req, res) => {
 
   try {
     console.log('Alınan:', newMessage);
-    const savedChat = newMessage.save();
+    const savedChat = await newMessage.save();
     console.log("Saved chat is: ", savedChat);
   } catch (error) {
     console.error("Error saving chat:", error);
