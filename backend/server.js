@@ -17,7 +17,11 @@ if (!process.env.MONGO_URI) { // Check the env variable itself for clarity
 }
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: '*', // Veya sadece senin frontend'inin adresi: 'https://beggtho.vercel.app'
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // ÖNEMLİ: POST metoduna izin verdiğinizden emin olun
+  allowedHeaders: ['Content-Type', 'Authorization'], // Eğer başka custom başlıklar kullanıyorsanız ekleyin
+}));
 
 mongoose.connect(dbURI)
   .then(function() {

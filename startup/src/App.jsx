@@ -86,6 +86,7 @@ function App() {
       console.log("Send data:", data);
       setMessages([...messages, data]);
       setSentmes('');
+      console.log("input cleared");
     } catch (error) {
       console.error("sendMessage hatasi:", error);
     }
