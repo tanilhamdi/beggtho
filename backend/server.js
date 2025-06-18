@@ -52,7 +52,7 @@ app.get('/api/chat', async (req, res) => {
   res.json(allMessages);
 });
 
-app.post('/api/send', (req, res) => {
+app.post('/api/send', async (req, res) => {
   const { name, message } = req.body;
 
   const newMessage = new Messagesdb({
