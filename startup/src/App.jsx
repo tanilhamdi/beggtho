@@ -1,10 +1,18 @@
 import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import './App.css';
+
 
 function Inputbox({ className, onChange, id, placeholder, style }) {
   return (
     <input className={className} style={style} onChange={onChange} id={id} placeholder={placeholder} />
   );
+}
+
+function Bigbutton({ className, text }) {
+  return (
+    <button className={className}>{text}</button>
+  )
 }
 
 function ShortButton({ src, className, url }) {
@@ -94,6 +102,13 @@ function App() {
 
   return (
     <div>
+      <div className="button-container">
+        <Link to="/login">
+          <Bigbutton className="BB" text="Log in" />
+        </Link>
+        <Bigbutton className="BB" text="Sign up" />
+
+      </div>
       <title>BeggTho</title>
       <div className="tht">
         <h1>BEGGTHO?</h1>

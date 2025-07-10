@@ -52,6 +52,31 @@ app.get('/api/chat', async (req, res) => {
   res.json(allMessages);
 });
 
+const usersSchema = mongoose.Schema({
+  username: { type: String, required: true },
+  password: { type: String, required: true }
+});
+
+const UserDB = mongoose.model("User", usersSchema, "users")
+
+app.post('/api/login', async (req, res) => {
+  const { username, password } = req.body;
+  const newUser = new UserDB({
+    username,
+    password
+  });
+
+  try {
+    console.log('Alınan:', newUser);
+    const savedUser = await newUser.save();
+    console.log("Saved chat is: ", savedUser);
+  } catch (error) {
+    console.error("Error saving chat:", error);
+    res.status(500).json({ error: 'Failed to save message' });
+  }
+
+});
+
 app.post('/api/send', async (req, res) => {
   const { name, message } = req.body;
 
