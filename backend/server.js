@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
+import bcrypt from 'bcrypt';
 const app = express();
 const port = process.env.PORT || 4000;
 
@@ -61,6 +62,8 @@ const UserDB = mongoose.model("User", usersSchema, "users")
 
 app.post('/api/login', async (req, res) => {
   const { username, password } = req.body;
+
+  const hashedPassword = await bcrypt.hash(password, 10);
   const newUser = new UserDB({
     username,
     password
