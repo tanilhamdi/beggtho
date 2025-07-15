@@ -51,7 +51,7 @@ function App() {
   }, [search]);
 
   useEffect(() => {
-    fetch("https://beggtho.vercel.app/api/chat")
+    fetch("https://beggtho-server.onrender.com/api/chat")
       .then((res) => {
         console.log("Fetch status:", res.status);
         return res.json();
