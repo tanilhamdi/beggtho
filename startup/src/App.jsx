@@ -129,6 +129,7 @@ function App() {
           src="https://png.co.ke/wp-content/uploads/2024/05/CITYPNG.COMNetflix-Vector-Flat-Logo-886x885-1.png"
           url="https://www.netflix.com"
         />
+        <ShortButton className="btns" url="https://himym-egg.vercel.app/" src="https://img.icons8.com/?size=512&id=7vm2zjnwZxLc&format=png" />
         <div className='chat' ref={chatRef}>
           {messages.map((item, index) => (
             <div key={index} style={{ display: 'flex', gap: '5px' }}>
