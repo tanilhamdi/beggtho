@@ -23,51 +23,59 @@ body {
   color: var(--text-color);
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
+  /* Changed: Center items vertically within the body */
   min-height: 100vh;
-  padding-top: 30px;
+  /* padding-top: 30px; */
+  /* Removed: No longer needed with centered content */
   overflow-x: hidden;
   /* Yatay kaydırmayı önle */
 }
 
 #root {
   max-width: 1200px;
-  /* Genel genişliği tekrar biraz artırdık */
   width: 100%;
   margin: 0 auto;
   text-align: center;
-  padding: 20px;
+  padding: 0px 20px;
+  /* Adjusted: Removed vertical padding */
   box-sizing: border-box;
+  display: flex;
+  /* Added: Make #root a flex container */
+  flex-direction: column;
+  /* Added: Stack children vertically */
+  align-items: center;
+  /* Added: Center children horizontally */
+  justify-content: center;
+  /* Added: Center children vertically if needed */
+  min-height: calc(100vh - 60px);
+  /* Adjusted: To account for button-container */
 }
 
 /* Başlık */
 .tht {
   color: var(--accent-color);
-  font-size: 3.5em;
-  /* BEGGTHO? yazısının boyutunu orijinaline yakın ama biraz daha optimize edilmiş hali */
-  margin-bottom: 40px;
+  font-size: 30px;
   font-weight: 700;
   letter-spacing: 2px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: -60px;
 }
 
 /* Ana Arama Kutusu */
 #inputbox {
   width: 500px;
-  /* Eski haline döndü */
   height: 60px;
-  /* Eski haline döndü */
   outline: none;
   border: none;
   font-size: 1.5em;
-  /* Eski haline döndü */
   padding: 0 30px;
-  /* Eski haline döndü */
   border-radius: 30px;
   background-color: var(--input-bg-color);
   transition: all 0.4s ease-in-out;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   color: #333;
+  /* Added: To remove default margins from h1 inside .tht */
 }
 
 #inputbox::placeholder {
@@ -82,12 +90,10 @@ body {
 #inputbox:hover {
   background-color: var(--input-hover-bg-color);
   width: 550px;
-  /* Eski haline döndü */
 }
 
 #inputbox:focus {
   width: 600px;
-  /* Eski haline döndü */
   background-color: var(--input-hover-bg-color);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
@@ -141,9 +147,7 @@ body {
 .btns {
   border-radius: 25px;
   width: 90px;
-  /* Eski haline döndü */
   height: 90px;
-  /* Eski haline döndü */
   background-color: var(--secondary-bg-color);
   display: flex;
   justify-content: center;
@@ -169,7 +173,6 @@ body {
 
 .btns img {
   width: 75px;
-  /* Eski haline döndü */
   height: auto;
   transition: transform 0.3s ease;
 }
@@ -196,8 +199,10 @@ body {
   right: 15px;
   padding: 12px;
   max-height: 300px;
+  /* Essential for scrollability */
   width: 280px;
   overflow-y: auto;
+  /* Essential for scrollability */
   display: flex;
   flex-direction: column;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -208,9 +213,10 @@ body {
 }
 
 /* Sohbet Mesajları */
+/* IMPORTANT: Added initial opacity: 0; for the JS animation to work */
 .chat div:not(.message-input-area) {
-  /* Sadece mesaj div'lerini hedefle */
   opacity: 0;
+  /* Start hidden so JS can animate its appearance */
   animation: slideInFromBottom 0.4s ease-out forwards;
 }
 
@@ -265,7 +271,6 @@ body {
   align-items: center;
   margin-top: 10px;
   gap: 5px;
-  /* Animasyonlu olmaması için başlangıçtaki opacity ayarından hariç tuttuk */
   opacity: 1;
   animation: none;
 }
@@ -380,8 +385,10 @@ body {
 @media (max-width: 768px) {
   .tht {
     font-size: 2.5em;
-    /* Daha da küçültüldü */
-    margin-top: 60px;
+    margin-top: 0px;
+    /* Adjusted for smaller screens */
+    margin-bottom: 15px;
+    /* Adjusted for smaller screens */
   }
 
   #inputbox {
@@ -417,23 +424,20 @@ body {
 
   .btns {
     width: 80px;
-    /* Eski haline yakın */
     height: 80px;
-    /* Eski haline yakın */
   }
 
   .btns img {
     width: 65px;
-    /* Eski haline yakın */
   }
 
   .chat {
+    /* Kept original name */
     width: calc(100% - 30px);
     right: 15px;
     left: 15px;
     bottom: 10px;
     max-height: 250px;
-    /* Biraz daha büyüttük */
     padding: 10px;
   }
 
@@ -465,7 +469,8 @@ body {
 @media (max-width: 480px) {
   .tht {
     font-size: 2em;
-    margin-top: 50px;
+    margin-top: 0px;
+    margin-bottom: 10px;
   }
 
   #inputbox {
@@ -495,6 +500,7 @@ body {
   }
 
   .chat {
+    /* Kept original name */
     width: calc(100% - 20px);
     right: 10px;
     left: 10px;

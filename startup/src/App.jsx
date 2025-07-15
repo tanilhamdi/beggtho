@@ -59,16 +59,21 @@ function App() {
       .then((data) => {
         console.log("Fetched data:", data);
         setMessages(data);
+        // Trigger scroll after initial fetch and setMessages
+        if (chatRef.current) {
+          chatRef.current.scrollTop = chatRef.current.scrollHeight;
+        }
       })
       .catch((error) => console.error("Fetch error:", error));
-  }, []);
+  }, []); // Empty dependency array means this runs ONCE on component mount
 
+  // This useEffect will run whenever 'messages' state changes,
+  // including after the initial fetch and subsequent interval fetches/sends.
   useEffect(() => {
-    // Scroll to the bottom of the chat when messages change
     if (chatRef.current) {
       chatRef.current.scrollTop = chatRef.current.scrollHeight;
     }
-  }, []);
+  }, [messages]); // <-- Dependency array changed to [messages]
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -80,6 +85,7 @@ function App() {
         })
         .catch((error) => console.error("Fetch error:", error));
     }, 5000); // Fetch every 5 seconds
+    return () => clearInterval(interval); // Clear interval on unmount
   }, []);
 
   const sendMessage = async () => {
@@ -92,13 +98,27 @@ function App() {
       console.log("Send response status:", response.status);
       const data = await response.json();
       console.log("Send data:", data);
-      setMessages([...messages, data]);
-      setSentmes('');
-      console.log("input cleared");
+      // setMessages([...messages, data]); // This will trigger the scroll useEffect
+      // It's usually better to refetch all messages after sending for consistency
+      // if your backend doesn't return the full updated list.
+      // Or, add the new message directly and then refetch in a moment.
+      // For simplicity, let's trigger a refetch immediately or wait for the interval.
+      // A common pattern is:
+      setMessages(prevMessages => [...prevMessages, { name: "Anonim", message: sentmes }]); // Optimistic update
+      setSentmes(''); // Clear input immediately
+      // Then, either wait for the 5-second interval to sync, or
+      // trigger a manual fetch here:
+      fetch("https://beggtho-server.onrender.com/api/chat")
+        .then(res => res.json())
+        .then(data => setMessages(data))
+        .catch(error => console.error("Refetch after send error:", error));
+
+
     } catch (error) {
       console.error("sendMessage hatasi:", error);
     }
   };
+
 
   return (
     <div>
@@ -130,7 +150,7 @@ function App() {
           url="https://www.netflix.com"
         />
         <ShortButton className="btns" url="https://himym-egg.vercel.app/" src="https://img.icons8.com/?size=512&id=7vm2zjnwZxLc&format=png" />
-        <div className='chat' ref={chatRef}>
+        <div className='chat' ref={chatRef}> {/* Ensure this ref is attached */}
           {messages.map((item, index) => (
             <div key={index} style={{ display: 'flex', gap: '5px' }}>
               <span>
@@ -139,8 +159,10 @@ function App() {
               </span>
             </div>
           ))}
-          <input value={sentmes} id='msgbox' onChange={e => setSentmes(e.target.value)} />
-          <button className='sendbtn' onClick={sendMessage}>send</button>
+          <div className="message-input-area"> {/* Added this wrapper based on your CSS */}
+            <input value={sentmes} id='msgbox' onChange={e => setSentmes(e.target.value)} />
+            <button className='sendbtn' onClick={sendMessage}>send</button>
+          </div>
         </div>
       </div>
     </div>
