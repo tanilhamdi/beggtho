@@ -61,7 +61,7 @@ body {
 
 /* Title - Güncellenmiş */
 .tht {
-  font-family: 50px;
+  font-family: 100px;
   margin-top: 50px;
   margin-bottom: 30px;
   text-align: center;
@@ -73,7 +73,7 @@ body {
 
 /* Input Box (Search Bar) */
 #inputbox {
-  width: 1000px;
+  width: 500px;
   padding: 12px 20px;
   border: 1px solid #444;
   /* Koyu gri kenarlık */
@@ -135,6 +135,7 @@ body {
   width: 350px;
   height: 450px;
   background-color: #3e4451;
+  padding: 10px;
   /* Koyu mavi-gri arkaplan */
   border: 1px solid #444;
   /* Koyu kenarlık */
