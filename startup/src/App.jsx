@@ -149,10 +149,7 @@ function App() {
         console.log("Mesaj gönderildi:", data);
         // Mesaj gönderildikten sonra mesaj kutusunu temizle
         setSentmes('');
-        // Mesajları tekrar çekerek sohbeti güncelle (veya optimistik güncelleme yapabilirsiniz)
-        // Mevcut yapınızda interval zaten güncelliyor, ancak anında görmek için tekrar çekmek iyi bir pratik.
-        // Optimistik güncelleme, mesajı backend onaylamadan önce UI'da göstermektir.
-        // Bu durumda, response.ok ise messages state'ine yeni mesajı ekleyebiliriz:
+        // Optimistik güncelleme: Yeni mesajı doğrudan UI'a ekle
         setMessages(prevMessages => [...prevMessages, data.chat]);
       } else if (response.status === 401 || response.status === 403) {
         console.log('Mesaj gönderme yetkisi yok, giriş sayfasına yönlendiriliyor.');
@@ -270,20 +267,26 @@ function App() {
         {messages.length === 0 && !isLoading && !chatError ? (
           <p className="no-messages">Henüz mesaj yok. İlk mesajı sen gönder!</p>
         ) : (
-          messages.map((item, index) => (
-            <div key={index} className={`chat-message ${item.name === currentUser.username ? 'my-message' : ''}`}>
-              <span className="message-sender">
-                {item.name}:
-              </span>
-              <span className="message-content">
-                {item.message}
-              </span>
-              {/* İsterseniz timestamp da ekleyebilirsiniz */}
-              {/* <span className="message-timestamp">
-                                {new Date(item.timestamp).toLocaleTimeString()}
-                            </span> */}
-            </div>
-          ))
+          <div className="chat-messages"> {/* Added a div for messages to apply flex-grow and overflow */}
+            {messages.map((item, index) => (
+              <div
+                key={index}
+                className={`chat-message ${item.name === currentUser.username ? 'my-message' : ''}`}
+                style={{ '--message-index': index }} // Pass index as a CSS variable for animation delay
+              >
+                <span className="message-sender">
+                  {item.name}:
+                </span>
+                <span className="message-content">
+                  {item.message}
+                </span>
+                {/* İsterseniz timestamp da ekleyebilirsiniz */}
+                {/* <span className="message-timestamp">
+                  {new Date(item.timestamp).toLocaleTimeString()}
+                </span> */}
+              </div>
+            ))}
+          </div>
         )}
         <div className="message-input-area">
           <input
