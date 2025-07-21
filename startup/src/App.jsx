@@ -285,20 +285,20 @@ function App() {
             </div>
           ))
         )}
-      </div>
-      <div className="message-input-area">
-        <input
-          value={sentmes}
-          id='msgbox'
-          onChange={e => setSentmes(e.target.value)}
-          onKeyPress={(e) => { // Enter tuşu ile gönderme
-            if (e.key === 'Enter') {
-              sendMessage();
-            }
-          }}
-          placeholder={`Mesaj yaz ${currentUser.username}...`}
-        />
-        <button className='sendbtn' onClick={sendMessage}>Gönder</button>
+        <div className="message-input-area">
+          <input
+            value={sentmes}
+            id='msgbox'
+            onChange={e => setSentmes(e.target.value)}
+            onKeyPress={(e) => { // Enter tuşu ile gönderme
+              if (e.key === 'Enter') {
+                sendMessage();
+              }
+            }}
+            placeholder={`Mesaj yaz ${currentUser.username}...`}
+          />
+          <button className='sendbtn' onClick={sendMessage}>Gönder</button>
+        </div>
       </div>
     </div>
   );
