@@ -8,18 +8,18 @@ function Inputbox({ type, onChange, className }) {
   );
 }
 
-function Login() {
+function Signup() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = async () => {
+  const handleSignup = async () => {
     setErrorMessage('');
 
     try {
       // **API URL'i güncellendi**
-      const response = await fetch("https://beggtho-server.onrender.com/api/login", {
+      const response = await fetch("https://beggtho-server.onrender.com/api/signin", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: 'include',
@@ -28,12 +28,12 @@ function Login() {
 
       if (response.ok) {
         const data = await response.json();
-        console.log("Giriş başarılı:", data.message);
-        navigate('/chat');
+        console.log("Kayıt başarılı:", data.message);
+        navigate('/chat'); // Başarılı kayıt sonrası direkt chat sayfasına yönlendiriyoruz
       } else {
         const errorData = await response.json();
-        console.error("Giriş hatası:", errorData.message);
-        setErrorMessage(errorData.message || 'Giriş başarısız oldu. Lütfen tekrar deneyin.');
+        console.error("Kayıt hatası:", errorData.message);
+        setErrorMessage(errorData.message || 'Kayıt başarısız oldu. Lütfen tekrar deneyin.');
       }
     } catch (error) {
       console.error("Ağ hatası veya sunucuya ulaşılamıyor:", error);
@@ -44,10 +44,10 @@ function Login() {
   return (
     <div className='spanOfLogin'>
       <div className='loginTitle'>
-        <b>Log in</b>
+        <b>Kaydol</b>
       </div>
       <br />
-      E-Mail (Kullanıcı Adı)
+      Kullanıcı Adı
       <Inputbox
         className="linput"
         onChange={(e) => setUsername(e.target.value)}
@@ -55,7 +55,7 @@ function Login() {
         value={username}
       />
       <br />
-      Password
+      Şifre
       <Inputbox
         className="linput"
         type="password"
@@ -64,10 +64,10 @@ function Login() {
       />
       <br />
       {errorMessage && <p className="error-message">{errorMessage}</p>}
-      <button id="lgin" onClick={handleLogin}>Log in</button>
-      <p>Hesabın yok mu? <a href="/Signin">Şimdi kaydol</a></p>
+      <button id="lgin" onClick={handleSignup}>Kaydol</button>
+      <p>Zaten hesabın var mı? <a href="/login">Giriş Yap</a></p>
     </div>
   );
 }
 
-export default Login;
+export default Signup;
