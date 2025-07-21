@@ -9,8 +9,20 @@ body {
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+  /* Tam ekran yüksekliği */
   color: #e0e0e0;
   /* Açık Gri Metin */
+}
+
+/* App bileşeninin kendisi için arkaplanı kaldırıyoruz, body dolduracak */
+#root {
+  /* Veya App bileşeninin en dış div'i */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  /* İçeriğin dikeyde yayılmasını sağlar */
 }
 
 /* Button Container */
@@ -47,17 +59,20 @@ body {
   background-color: #528abd;
 }
 
-/* Title */
+/* Title - Güncellenmiş */
 .tht {
   margin-top: 50px;
   margin-bottom: 30px;
   text-align: center;
+  width: 100%;
+  /* Ortalamak için genişlik */
 }
 
 .tht h1 {
-  font-size: 4em;
-  color: #e06c75;
-  /* Kırmızımsı ton */
+  font-size: 5em;
+  /* Biraz daha büyütüldü */
+  color: #98c379;
+  /* Gönder butonu ile aynı yeşil renk */
   font-family: 'Product Sans', Arial, sans-serif;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   letter-spacing: 1px;
