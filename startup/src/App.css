@@ -2,7 +2,6 @@
 body {
   font-family: 'Arial', sans-serif;
   background-color: #f0f2f5;
-  /* Soft light gray background */
   margin: 0;
   padding: 0;
   display: flex;
@@ -10,7 +9,6 @@ body {
   align-items: center;
   min-height: 100vh;
   color: #333;
-  /* Dark gray text color */
 }
 
 /* Button Container */
@@ -35,18 +33,14 @@ body {
   border: none;
   border-radius: 5px;
   background-color: #007bff;
-  /* Primary blue color */
   color: white;
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  /* Subtle shadow for depth */
 }
 
 .BB:hover {
   background-color: #0056b3;
-  /* Darker blue on hover */
 }
 
 /* Title */
@@ -57,11 +51,11 @@ body {
 }
 
 .tht h1 {
-  font-size: 3em;
-  color: #28a745;
-  /* Green title color */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  /* Soft text shadow */
+  font-size: 4em;
+  color: #4285f4;
+  font-family: 'Product Sans', Arial, sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+  letter-spacing: 1px;
 }
 
 /* Input Box (Search Bar) */
@@ -71,30 +65,20 @@ body {
   padding: 12px 20px;
   border: 1px solid #ccc;
   border-radius: 25px;
-  /* More rounded corners */
   font-size: 1.1em;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   margin-bottom: 20px;
   text-align: center;
   box-sizing: border-box;
-  /* Ensures padding doesn't increase total width */
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  /* Smooth transition on focus */
-}
-
-#inputbox:focus {
-  outline: none;
-  border-color: #007bff;
-  /* Blue border on focus */
-  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
-  /* Soft blue glow on focus */
 }
 
 /* Short Buttons (YouTube, Netflix, etc.) */
 .buttons-container {
   display: flex;
-  gap: 15px;
+  gap: 20px;
   margin-bottom: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .btns {
@@ -106,152 +90,82 @@ body {
 }
 
 .btns img {
-  width: 50px;
-  height: 50px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  object-fit: contain;
-  /* Ensures image fits within bounds without distortion */
+  width: 70px;
+  height: 70px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .btns:hover {
   transform: scale(1.1);
-  /* Slight zoom on hover */
 }
-
----
 
 /* --- Chat Container Styling --- */
 .chat {
   position: fixed;
-  /* Fixes the chat in the viewport */
   bottom: 20px;
-  /* Aligns to the bottom, 20px from edge */
   right: 20px;
-  /* Aligns to the right, 20px from edge */
   width: 350px;
-  /* Fixed width for the chat window */
   height: 450px;
-  /* Fixed height for the chat window */
   background-color: #ffffff;
-  /* White background for chat box */
   border: 1px solid #e0e0e0;
-  /* Light border */
   border-radius: 10px;
-  /* Rounded corners for the chat box */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  /* More pronounced shadow */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  /* Ensures content inside stays within bounds */
   z-index: 1000;
-  /* Ensures chat is above other content */
 }
 
 .chat-messages {
   flex-grow: 1;
-  /* Allows messages to take available space */
   padding: 15px;
   overflow-y: auto;
-  /* Enables scrolling for messages */
   display: flex;
   flex-direction: column;
   gap: 10px;
-  /* Space between messages */
-  /* Custom scrollbar for a cleaner look */
-  scrollbar-width: thin;
-  scrollbar-color: #bbb #f1f1f1;
-}
-
-.chat-messages::-webkit-scrollbar {
-  width: 8px;
-}
-
-.chat-messages::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
-}
-
-.chat-messages::-webkit-scrollbar-thumb {
-  background: #bbb;
-  border-radius: 10px;
-}
-
-.chat-messages::-webkit-scrollbar-thumb:hover {
-  background: #999;
 }
 
 .chat-message {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  /* Default for others' messages */
   max-width: 80%;
-  /* Messages don't take full width */
   word-wrap: break-word;
-  /* Breaks long words */
-  animation: fadeInMessage 0.3s ease-out forwards;
-  /* Simple fade-in animation */
-}
-
-/* Animation for new messages */
-@keyframes fadeInMessage {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .chat-message .message-sender {
   font-weight: bold;
   margin-bottom: 3px;
-  color: #555;
-  /* Darker color for sender name */
-  font-size: 0.85em;
+  color: #007bff;
+  font-size: 0.9em;
 }
 
 .chat-message .message-content {
-  background-color: #e9e9eb;
-  /* Light gray background for others' messages (iOS Messages style) */
+  background-color: #f1f0f0;
   padding: 8px 12px;
-  border-radius: 18px;
-  /* More rounded bubble style */
-  font-size: 0.95em;
+  border-radius: 15px;
+  font-size: 1em;
   color: #333;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  /* Subtle shadow for message bubbles */
 }
 
 .chat-message.my-message {
   align-self: flex-end;
-  /* Aligns my messages to the right */
   align-items: flex-end;
-  /* Aligns sender/content to the right for my messages */
 }
 
 .chat-message.my-message .message-sender {
-  color: #007bff;
-  /* Primary blue for my sender name */
+  color: #28a745;
 }
 
 .chat-message.my-message .message-content {
-  background-color: #007bff;
-  /* Primary blue for my messages */
-  color: white;
-  /* White text for my messages */
+  background-color: #dcf8c6;
 }
 
 .no-messages {
   text-align: center;
   color: #777;
   padding: 20px;
-  font-style: italic;
 }
 
 .message-input-area {
@@ -268,13 +182,6 @@ body {
   border-radius: 20px;
   margin-right: 10px;
   font-size: 1em;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-#msgbox:focus {
-  outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
 }
 
 .sendbtn {
@@ -282,25 +189,14 @@ body {
   border: none;
   border-radius: 20px;
   background-color: #28a745;
-  /* Green send button */
   color: white;
   cursor: pointer;
   font-size: 1em;
-  transition: background-color 0.3s ease, transform 0.1s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
 }
 
 .sendbtn:hover {
   background-color: #218838;
-  /* Darker green on hover */
-  transform: translateY(-1px);
-  /* Slight lift on hover */
-}
-
-.sendbtn:active {
-  transform: translateY(0);
-  /* Press effect */
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 /* Loading and Error Screens */
@@ -317,48 +213,28 @@ body {
   color: #555;
   font-size: 1.5em;
   text-align: center;
-  position: fixed;
-  /* Ensures it covers the whole screen */
-  top: 0;
-  left: 0;
-  z-index: 2000;
-  /* High z-index to be on top */
 }
 
 .error-screen h2,
 .not-logged-in-screen h2 {
   color: #dc3545;
-  /* Red for errors */
   margin-bottom: 15px;
-}
-
-.error-screen p,
-.not-logged-in-screen p {
-  margin-bottom: 25px;
 }
 
 .error-screen button,
 .not-logged-in-screen button {
   margin-top: 20px;
-  padding: 12px 30px;
+  padding: 10px 25px;
   background-color: #007bff;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 1.1em;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  font-size: 1em;
+  transition: background-color 0.3s ease;
 }
 
 .error-screen button:hover,
 .not-logged-in-screen button:hover {
   background-color: #0056b3;
-  transform: translateY(-2px);
-}
-
-.error-screen button:active,
-.not-logged-in-screen button:active {
-  transform: translateY(0);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
