@@ -1,475 +1,252 @@
-/* Genel Stil Ayarları */
-:root {
-  --primary-bg-color: #233142;
-  --secondary-bg-color: #455d7a;
-  --accent-color: #f95959;
-  --text-color: #ffffff;
-  --input-bg-color: #e3e3e3;
-  --input-hover-bg-color: #b5b5b5;
-  --chat-bg-color: #556270;
-  /* Slightly darker gray for chat */
-  --chat-message-bg: #6a7686;
-  /* Background for individual chat messages */
-  --chat-input-bg: #e3e3e3;
-  /* Chat input background */
-  --chat-send-btn-bg: #f95959;
-  /* Chat send button background */
-}
-
+/* General Body Styling */
 body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f2f5;
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--primary-bg-color);
-  color: var(--text-color);
+  padding: 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  /* Changed: Center items vertically within the body */
-  min-height: 100vh;
-  /* padding-top: 30px; */
-  /* Removed: No longer needed with centered content */
-  overflow-x: hidden;
-  /* Yatay kaydırmayı önle */
-}
-
-#root {
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  padding: 0px 20px;
-  /* Adjusted: Removed vertical padding */
-  box-sizing: border-box;
-  display: flex;
-  /* Added: Make #root a flex container */
   flex-direction: column;
-  /* Added: Stack children vertically */
   align-items: center;
-  /* Added: Center children horizontally */
-  justify-content: center;
-  /* Added: Center children vertically if needed */
-  min-height: calc(100vh - 60px);
-  /* Adjusted: To account for button-container */
-}
-
-/* Başlık */
-.tht {
-  color: var(--accent-color);
-  font-size: 30px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  margin-bottom: -60px;
-}
-
-/* Ana Arama Kutusu */
-#inputbox {
-  width: 500px;
-  height: 60px;
-  outline: none;
-  border: none;
-  font-size: 1.5em;
-  padding: 0 30px;
-  border-radius: 30px;
-  background-color: var(--input-bg-color);
-  transition: all 0.4s ease-in-out;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  min-height: 100vh;
   color: #333;
-  /* Added: To remove default margins from h1 inside .tht */
 }
 
-#inputbox::placeholder {
-  color: #888;
-  transition: color 0.3s ease;
-}
-
-#inputbox:focus::placeholder {
-  color: transparent;
-}
-
-#inputbox:hover {
-  background-color: var(--input-hover-bg-color);
-  width: 550px;
-}
-
-#inputbox:focus {
-  width: 600px;
-  background-color: var(--input-hover-bg-color);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-}
-
-/* Üst Sağdaki Butonlar (Giriş/Kayıt) */
+/* Button Container */
 .button-container {
-  position: fixed;
+  position: absolute;
   top: 20px;
   right: 20px;
   display: flex;
-  gap: 15px;
-  z-index: 1000;
+  gap: 10px;
+  align-items: center;
 }
 
+.welcome-message {
+  font-weight: bold;
+  margin-right: 10px;
+  color: #555;
+}
+
+/* Big Button (Giriş Yap, Kaydol, Çıkış Yap) */
 .BB {
-  padding: 12px 28px;
-  background-color: var(--secondary-bg-color);
-  color: var(--text-color);
+  padding: 10px 20px;
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
   cursor: pointer;
-  font-size: 1.1em;
-  font-weight: 600;
-  min-width: 90px;
-  min-height: 45px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+  transition: background-color 0.3s ease;
 }
 
 .BB:hover {
-  background-color: #5d7491;
-  transform: translateY(-2px);
+  background-color: #0056b3;
 }
 
-.BB:focus,
-.BB:active {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(69, 93, 122, 0.6);
+/* Title */
+.tht {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  text-align: center;
 }
 
-/* Ana Butonlar (YouTube, Netflix vb.) */
+.tht h1 {
+  font-size: 3em;
+  color: #28a745;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Input Box (Search Bar) */
+#inputbox {
+  width: 60%;
+  max-width: 700px;
+  padding: 12px 20px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  font-size: 1.1em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+  text-align: center;
+  box-sizing: border-box;
+  /* Ensures padding doesn't increase total width */
+}
+
+/* Short Buttons (YouTube, Netflix, etc.) */
 .buttons-container {
   display: flex;
-  flex-direction: row;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 30px;
-  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 40px;
 }
 
 .btns {
-  border-radius: 25px;
-  width: 90px;
-  height: 90px;
-  background-color: var(--secondary-bg-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background: none;
   border: none;
   cursor: pointer;
-  overflow: hidden;
-}
-
-.btns:hover {
-  background-color: #5d7491;
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
-.btns:focus,
-.btns:active {
-  outline: none;
-  box-shadow: 0 0 0 4px rgba(69, 93, 122, 0.7);
+  padding: 0;
+  transition: transform 0.2s ease;
 }
 
 .btns img {
-  width: 75px;
-  height: auto;
-  transition: transform 0.3s ease;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.btns:hover img {
+.btns:hover {
   transform: scale(1.1);
 }
 
-/* Inputbox odaklandığında veya üzerine gelindiğinde düğmelerin gizlenmesi */
-#inputbox:hover~.buttons-container .btns,
-#inputbox:focus~.buttons-container .btns {
-  opacity: 0;
-  pointer-events: none;
-  transform: scale(0.8);
-}
-
-/* Sohbet Alanı */
+/* --- Chat Container Styling --- */
 .chat {
-  margin: 0;
-  border-radius: 12px;
-  background-color: var(--chat-bg-color);
   position: fixed;
-  bottom: 15px;
-  right: 15px;
-  padding: 12px;
-  max-height: 300px;
-  width: 280px;
-  overflow-y: auto;
+  /* Fixes the chat in the viewport */
+  bottom: 20px;
+  /* Aligns to the bottom */
+  right: 20px;
+  /* Aligns to the right */
+  width: 350px;
+  /* Fixed width for the chat window */
+  height: 450px;
+  /* Fixed height for the chat window */
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-  z-index: 900;
-  gap: 6px;
-  animation: fadeIn 0.5s ease-out;
+  overflow: hidden;
+  /* Ensures content inside stays within bounds */
+  z-index: 1000;
+  /* Ensures chat is above other content */
 }
 
-/* Sohbet Giriş Kutusu ve Gönder Düğmesi */
+.chat-messages {
+  flex-grow: 1;
+  /* Allows messages to take available space */
+  padding: 15px;
+  overflow-y: auto;
+  /* Enables scrolling for messages */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* Space between messages */
+}
+
+.chat-message {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* Default for others' messages */
+  max-width: 80%;
+  word-wrap: break-word;
+  /* Breaks long words */
+}
+
+.chat-message .message-sender {
+  font-weight: bold;
+  margin-bottom: 3px;
+  color: #007bff;
+  font-size: 0.9em;
+}
+
+.chat-message .message-content {
+  background-color: #f1f0f0;
+  padding: 8px 12px;
+  border-radius: 15px;
+  font-size: 1em;
+  color: #333;
+}
+
+.chat-message.my-message {
+  align-self: flex-end;
+  /* Aligns my messages to the right */
+  align-items: flex-end;
+  /* Aligns sender/content to the right for my messages */
+}
+
+.chat-message.my-message .message-sender {
+  color: #28a745;
+}
+
+.chat-message.my-message .message-content {
+  background-color: #dcf8c6;
+  /* Lighter green for my messages */
+}
+
+.no-messages {
+  text-align: center;
+  color: #777;
+  padding: 20px;
+}
+
 .message-input-area {
   display: flex;
-  align-items: center;
-  margin-top: auto; /* Giriş alanını en alta yapıştırır */
-  padding-top: 10px; /* Mesajlarla arasında boşluk bırakır */
-  gap: 5px;
-  background-color: var(--chat-bg-color); /* Arka planı sohbetle aynı yapar */
+  padding: 10px;
+  border-top: 1px solid #e0e0e0;
+  background-color: #f9f9f9;
 }
 
 #msgbox {
   flex-grow: 1;
-  height: 38px;
-  outline: none;
-  border: none;
-  border-radius: 18px;
-  padding: 0 12px;
-  background-color: var(--chat-input-bg);
-  font-size: 0.9em;
-  color: #333;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  margin-right: 10px;
+  font-size: 1em;
 }
 
 .sendbtn {
-  padding: 8px 12px;
-  font-size: 0.85em;
-  outline: none;
+  padding: 10px 20px;
   border: none;
-  border-radius: 18px;
-  background-color: var(--chat-send-btn-bg);
-  color: var(--text-color);
+  border-radius: 20px;
+  background-color: #28a745;
+  color: white;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  font-weight: 600;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
 }
 
 .sendbtn:hover {
-  background-color: #e04a4a;
-  transform: translateY(-1px);
+  background-color: #218838;
 }
 
-.sendbtn:focus,
-.sendbtn:active {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(249, 89, 89, 0.5);
-}
-
-/* Login Sayfası Stilleri */
-.spanOfLogin {
-  background-color: var(--secondary-bg-color);
-  color: var(--text-color);
+/* Loading and Error Screens */
+.loading-screen,
+.error-screen,
+.not-logged-in-screen {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding: 30px;
-  border-radius: 12px;
-  margin: 40px auto;
-  max-width: 400px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  height: 100vh;
+  width: 100vw;
+  background-color: #fff;
+  color: #555;
+  font-size: 1.5em;
+  text-align: center;
 }
 
-.loginTitle {
-  font-size: 3.5em;
-  color: var(--accent-color);
-  margin-bottom: 25px;
-  font-weight: 700;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.linput {
-  width: calc(100% - 50px);
-  height: 45px;
-  outline: none;
-  border: none;
-  font-size: 1.1em;
-  padding: 0 25px;
-  border-radius: 25px;
-  background-color: var(--input-bg-color);
-  transition: all 0.3s ease;
+.error-screen h2,
+.not-logged-in-screen h2 {
+  color: #dc3545;
   margin-bottom: 15px;
-  color: #333;
 }
 
-.linput:hover {
-  background-color: var(--input-hover-bg-color);
+.error-screen button,
+.not-logged-in-screen button {
+  margin-top: 20px;
+  padding: 10px 25px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
 }
 
-.linput:focus {
-  background-color: var(--input-hover-bg-color);
-  box-shadow: 0 0 0 2px rgba(69, 93, 122, 0.5);
-}
-
-/* Animasyonlar */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes slideInFromBottom {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive Düzenlemeler */
-@media (max-width: 768px) {
-  .tht {
-    font-size: 2.5em;
-    margin-top: 0px;
-    /* Adjusted for smaller screens */
-    margin-bottom: 15px;
-    /* Adjusted for smaller screens */
-  }
-
-  #inputbox {
-    width: 90%;
-    max-width: 400px;
-    height: 50px;
-    font-size: 1.2em;
-  }
-
-  #inputbox:hover,
-  #inputbox:focus {
-    width: 95%;
-    max-width: 450px;
-  }
-
-  .button-container {
-    flex-direction: row;
-    top: 10px;
-    right: 10px;
-    gap: 10px;
-  }
-
-  .BB {
-    font-size: 1em;
-    padding: 10px 20px;
-    min-width: 80px;
-    min-height: 40px;
-  }
-
-  .buttons-container {
-    gap: 15px;
-  }
-
-  .btns {
-    width: 80px;
-    height: 80px;
-  }
-
-  .btns img {
-    width: 65px;
-  }
-
-  .chat {
-    /* Kept original name */
-    width: calc(100% - 30px);
-    right: 15px;
-    left: 15px;
-    bottom: 10px;
-    max-height: 250px;
-    padding: 10px;
-  }
-
-  #msgbox {
-    height: 38px;
-    font-size: 0.9em;
-  }
-
-  .sendbtn {
-    padding: 8px 12px;
-    font-size: 0.85em;
-  }
-
-  .loginTitle {
-    font-size: 3em;
-  }
-
-  .spanOfLogin {
-    padding: 30px;
-    max-width: 90%;
-  }
-
-  .linput {
-    height: 45px;
-    font-size: 1.1em;
-  }
-}
-
-@media (max-width: 480px) {
-  .tht {
-    font-size: 2em;
-    margin-top: 0px;
-    margin-bottom: 10px;
-  }
-
-  #inputbox {
-    font-size: 1.1em;
-    height: 48px;
-  }
-
-  .button-container {
-    top: 5px;
-    right: 5px;
-    gap: 8px;
-  }
-
-  .BB {
-    padding: 8px 15px;
-    font-size: 0.9em;
-  }
-
-  .btns {
-    width: 70px;
-    height: 70px;
-    border-radius: 20px;
-  }
-
-  .btns img {
-    width: 60px;
-  }
-
-  .chat {
-    /* Kept original name */
-    width: calc(100% - 20px);
-    right: 10px;
-    left: 10px;
-    bottom: 5px;
-    padding: 8px;
-    max-height: 200px;
-  }
-
-  #msgbox {
-    height: 35px;
-    font-size: 0.85em;
-  }
-
-  .sendbtn {
-    padding: 7px 10px;
-    font-size: 0.8em;
-  }
-
-  .loginTitle {
-    font-size: 2.5em;
-  }
-
-  .linput {
-    height: 40px;
-    font-size: 1em;
-  }
+.error-screen button:hover,
+.not-logged-in-screen button:hover {
+  background-color: #0056b3;
 }
