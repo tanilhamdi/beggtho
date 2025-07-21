@@ -191,18 +191,13 @@ body {
 
 /* Sohbet Alanı */
 .chat {
-  margin: 0;
+  margin-top: 20px; /* İkonlarla arasında boşluk bırakmak için */
   border-radius: 12px;
   background-color: var(--chat-bg-color);
-  position: fixed;
-  bottom: 15px;
-  right: 15px;
   padding: 12px;
-  max-height: 300px;
-  /* Essential for scrollability */
-  width: 280px;
+  height: 300px; /* Sabit yükseklik */
+  width: 500px; /* Genişliği diğer öğelerle aynı hizada tutmak için */
   overflow-y: auto;
-  /* Essential for scrollability */
   display: flex;
   flex-direction: column;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -212,67 +207,13 @@ body {
   animation: fadeIn 0.5s ease-out;
 }
 
-/* Sohbet Mesajları */
-/* IMPORTANT: Added initial opacity: 0; for the JS animation to work */
-.chat div:not(.message-input-area) {
-  opacity: 0;
-  /* Start hidden so JS can animate its appearance */
-  animation: slideInFromBottom 0.4s ease-out forwards;
-}
-
-.chat div:not(.message-input-area):nth-child(1) {
-  animation-delay: 0.1s;
-}
-
-.chat div:not(.message-input-area):nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.chat div:not(.message-input-area):nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-.chat div:not(.message-input-area):nth-child(4) {
-  animation-delay: 0.4s;
-}
-
-.chat div:not(.message-input-area):nth-child(5) {
-  animation-delay: 0.5s;
-}
-
-
-.chat div span {
-  background-color: var(--chat-message-bg);
-  padding: 7px 10px;
-  border-radius: 8px;
-  display: inline-block;
-  word-break: break-word;
-  color: #fff;
-  line-height: 1.4;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-}
-
-.chat::-webkit-scrollbar {
-  width: 6px;
-}
-
-.chat::-webkit-scrollbar-thumb {
-  background-color: #a0a0a0;
-  border-radius: 3px;
-}
-
-.chat::-webkit-scrollbar-track {
-  background-color: #404a55;
-}
-
 /* Sohbet Giriş Kutusu ve Gönder Düğmesi */
-.chat .message-input-area {
+.message-input-area {
   display: flex;
   align-items: center;
-  margin-top: 10px;
+  margin-top: auto; /* Giriş alanını en alta yapıştırmak için */
+  padding-top: 10px; /* Üstündeki mesajlarla boşluk bırakmak için */
   gap: 5px;
-  opacity: 1;
-  animation: none;
 }
 
 #msgbox {
