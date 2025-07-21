@@ -66,27 +66,19 @@ body {
   text-align: center;
   width: 100%;
   /* Ortalamak için genişlik */
+  color: #98c379;
 }
 
-.tht h1 {
-  font-size: 5em;
-  /* Biraz daha büyütüldü */
-  color: #98c379;
-  /* Gönder butonu ile aynı yeşil renk */
-  font-family: 'Product Sans', Arial, sans-serif;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  letter-spacing: 1px;
-}
 
 /* Input Box (Search Bar) */
 #inputbox {
-  width: 60%;
   max-width: 700px;
   padding: 12px 20px;
   border: 1px solid #444;
   /* Koyu gri kenarlık */
   border-radius: 25px;
   font-size: 1.1em;
+  outline: none;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   margin-bottom: 20px;
   text-align: center;
@@ -112,6 +104,8 @@ body {
 }
 
 .btns {
+  width: 100px;
+  height: 100px;
   background: none;
   border: none;
   cursor: pointer;
@@ -120,7 +114,7 @@ body {
 }
 
 .btns img {
-  width: 70px;
+  width: 75px;
   height: 70px;
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
