@@ -1,17 +1,19 @@
-/* General Body Styling */
+/* General Body Styling - Minimal, similar to original */
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f0f2f5;
-  margin: 0;
-  padding: 0;
+  font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0;
+  padding: 20px;
   min-height: 100vh;
+  box-sizing: border-box;
+  background-color: #f4f4f4;
+  /* Light background */
   color: #333;
 }
 
-/* Button Container */
+/* Button Container - Positioned as requested */
 .button-container {
   position: absolute;
   top: 20px;
@@ -29,18 +31,18 @@ body {
 
 /* Big Button (Giriş Yap, Kaydol, Çıkış Yap) */
 .BB {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: white;
+  padding: 8px 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #e0e0e0;
+  color: #333;
   cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
 }
 
 .BB:hover {
-  background-color: #0056b3;
+  background-color: #d0d0d0;
 }
 
 /* Title */
@@ -52,29 +54,27 @@ body {
 
 .tht h1 {
   font-size: 3em;
-  color: #28a745;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  color: #333;
+  font-weight: normal;
 }
 
 /* Input Box (Search Bar) */
 #inputbox {
   width: 60%;
-  max-width: 700px;
-  padding: 12px 20px;
-  border: 1px solid #ccc;
-  border-radius: 25px;
-  font-size: 1.1em;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  margin-bottom: 20px;
+  max-width: 600px;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 1em;
   text-align: center;
-  box-sizing: border-box;
-  /* Ensures padding doesn't increase total width */
+  margin-bottom: 20px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 /* Short Buttons (YouTube, Netflix, etc.) */
 .buttons-container {
   display: flex;
-  gap: 15px;
+  gap: 10px;
   margin-bottom: 40px;
 }
 
@@ -83,61 +83,58 @@ body {
   border: none;
   cursor: pointer;
   padding: 0;
-  transition: transform 0.2s ease;
 }
 
 .btns img {
-  width: 50px;
-  height: 50px;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  object-fit: contain;
+  /* Ensures image fits within bounds without distortion */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.btns:hover {
-  transform: scale(1.1);
+.btns:hover img {
+  transform: scale(1.05);
+  /* Slight zoom on hover */
+  transition: transform 0.2s ease-in-out;
 }
+
 
 /* --- Chat Container Styling --- */
 .chat {
   position: fixed;
-  /* Fixes the chat in the viewport */
   bottom: 20px;
-  /* Aligns to the bottom */
   right: 20px;
-  /* Aligns to the right */
   width: 350px;
-  /* Fixed width for the chat window */
   height: 450px;
-  /* Fixed height for the chat window */
   background-color: #ffffff;
   border: 1px solid #e0e0e0;
   border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  /* Ensures content inside stays within bounds */
   z-index: 1000;
-  /* Ensures chat is above other content */
 }
 
+/* Wrapper for messages within chat to enable scrolling */
 .chat-messages {
   flex-grow: 1;
-  /* Allows messages to take available space */
   padding: 15px;
   overflow-y: auto;
-  /* Enables scrolling for messages */
+  /* Enable scrolling */
   display: flex;
   flex-direction: column;
   gap: 10px;
-  /* Space between messages */
+  /* Space between message bubbles */
 }
 
 .chat-message {
   display: flex;
   flex-direction: column;
   max-width: 85%;
-  /* Adjusted max-width for better spacing */
+  /* Keep messages from taking full width */
   word-wrap: break-word;
   opacity: 0;
   /* Start hidden for animation */
@@ -145,6 +142,8 @@ body {
   /* Start slightly below for animation */
   animation: slideInFromBottom 0.3s ease-out forwards;
   /* Apply animation */
+  transform-origin: bottom;
+  /* For a better slide-in effect */
 }
 
 /* Message sender (username) box */
@@ -153,26 +152,24 @@ body {
   margin-bottom: 3px;
   padding: 4px 8px;
   border-radius: 8px;
-  font-size: 0.85em;
+  font-size: 0.8em;
   color: #fff;
-  /* White text for sender box */
-  background-color: #007bff;
-  /* Blue for sender box */
+  background-color: #5cb85c;
+  /* Green for sender box (can change to your preference) */
   align-self: flex-start;
-  /* Align sender box to the left by default */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 /* Message content box */
 .chat-message .message-content {
   padding: 10px 14px;
   border-radius: 18px;
-  /* More rounded corners for message bubbles */
-  font-size: 1em;
+  /* Rounded corners for bubbles */
+  font-size: 0.95em;
   color: #333;
-  background-color: #f1f0f0;
+  background-color: #f0f0f0;
   /* Light gray for others' messages */
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  /* Subtle shadow */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
 }
 
 /* My messages styling */
@@ -184,13 +181,13 @@ body {
 }
 
 .chat-message.my-message .message-sender {
-  background-color: #28a745;
-  /* Green for my sender box */
+  background-color: #0275d8;
+  /* Blue for my sender box */
 }
 
 .chat-message.my-message .message-content {
-  background-color: #dcf8c6;
-  /* Lighter green for my message content */
+  background-color: #d9edf7;
+  /* Lighter blue for my message content (similar to alert-info) */
 }
 
 /* Animation for new messages */
@@ -203,11 +200,9 @@ body {
 
 /* For subsequent messages, apply a slight delay */
 .chat-message:nth-child(n) {
-  /* Target all messages */
   animation-delay: calc(var(--message-index) * 0.05s);
   /* Delay based on index */
 }
-
 
 .no-messages {
   text-align: center;
@@ -218,7 +213,7 @@ body {
 .message-input-area {
   display: flex;
   padding: 10px;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid #eee;
   background-color: #f9f9f9;
 }
 
@@ -235,15 +230,16 @@ body {
   padding: 10px 20px;
   border: none;
   border-radius: 20px;
-  background-color: #28a745;
+  background-color: #0275d8;
+  /* Bootstrap primary blue */
   color: white;
   cursor: pointer;
   font-size: 1em;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s ease;
 }
 
 .sendbtn:hover {
-  background-color: #218838;
+  background-color: #025aa5;
 }
 
 /* Loading and Error Screens */
@@ -260,6 +256,11 @@ body {
   color: #555;
   font-size: 1.5em;
   text-align: center;
+  position: fixed;
+  /* To cover the whole screen */
+  top: 0;
+  left: 0;
+  z-index: 2000;
 }
 
 .error-screen h2,
