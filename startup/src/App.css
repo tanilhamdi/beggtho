@@ -191,12 +191,15 @@ body {
 
 /* Sohbet Alanı */
 .chat {
-  margin-top: 20px; /* İkonlarla arasında boşluk bırakmak için */
+  margin: 0;
   border-radius: 12px;
   background-color: var(--chat-bg-color);
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
   padding: 12px;
-  height: 300px; /* Sabit yükseklik */
-  width: 500px; /* Genişliği diğer öğelerle aynı hizada tutmak için */
+  max-height: 300px;
+  width: 280px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -211,9 +214,10 @@ body {
 .message-input-area {
   display: flex;
   align-items: center;
-  margin-top: auto; /* Giriş alanını en alta yapıştırmak için */
-  padding-top: 10px; /* Üstündeki mesajlarla boşluk bırakmak için */
+  margin-top: auto; /* Giriş alanını en alta yapıştırır */
+  padding-top: 10px; /* Mesajlarla arasında boşluk bırakır */
   gap: 5px;
+  background-color: var(--chat-bg-color); /* Arka planı sohbetle aynı yapar */
 }
 
 #msgbox {
