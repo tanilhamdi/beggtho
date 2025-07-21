@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import "./App.css";
 
 function Inputbox({ type, onChange, className }) {
@@ -18,7 +18,6 @@ function Login() {
     setErrorMessage('');
 
     try {
-      // **API URL'i güncellendi**
       const response = await fetch("https://beggtho-server.onrender.com/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -29,7 +28,7 @@ function Login() {
       if (response.ok) {
         const data = await response.json();
         console.log("Giriş başarılı:", data.message);
-        navigate('/chat');
+        navigate('/'); // **BURASI DEĞİŞTİ: Ana sayfaya yönlendiriyoruz**
       } else {
         const errorData = await response.json();
         console.error("Giriş hatası:", errorData.message);
@@ -65,7 +64,7 @@ function Login() {
       <br />
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <button id="lgin" onClick={handleLogin}>Log in</button>
-      <p>Hesabın yok mu? <a href="/Signin">Şimdi kaydol</a></p>
+      <p>Hesabın yok mu? <Link to="/signin">Şimdi kaydol</Link></p>
     </div>
   );
 }

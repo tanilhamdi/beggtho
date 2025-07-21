@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useStimport React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./App.css";
 
@@ -18,7 +18,6 @@ function Signup() {
     setErrorMessage('');
 
     try {
-      // **API URL'i güncellendi**
       const response = await fetch("https://beggtho-server.onrender.com/api/signin", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -29,7 +28,7 @@ function Signup() {
       if (response.ok) {
         const data = await response.json();
         console.log("Kayıt başarılı:", data.message);
-        navigate('/chat'); // Başarılı kayıt sonrası direkt chat sayfasına yönlendiriyoruz
+        navigate('/'); // **BURASI DEĞİŞTİ: Ana sayfaya yönlendiriyoruz**
       } else {
         const errorData = await response.json();
         console.error("Kayıt hatası:", errorData.message);
