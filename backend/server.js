@@ -128,7 +128,7 @@ app.post('/api/login', async (req, res) => {
     res.cookie('jwt', token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
-      sameSite: 'Lax',
+      sameSite: 'None',
       maxAge: 3600000
     });
 
@@ -174,7 +174,7 @@ app.post('/api/signin', async (req, res) => {
     res.cookie('jwt', token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
-      sameSite: 'Lax',
+      sameSite: 'None',
       maxAge: 3600000
     });
 
@@ -218,7 +218,7 @@ app.post('/api/logout', (req, res) => {
   res.cookie('jwt', '', {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
-    sameSite: 'Lax',
+    sameSite: 'None',
     expires: new Date(0)
   });
   console.log("Kullanıcı çıkış yaptı ve JWT cookie'si silindi.");
