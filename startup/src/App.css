@@ -1,14 +1,16 @@
-/* General Body Styling */
+/* General Body Styling - Night Mode */
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f0f2f5;
+  background-color: #282c34;
+  /* Koyu Gri Arkaplan */
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  color: #333;
+  color: #e0e0e0;
+  /* Açık Gri Metin */
 }
 
 /* Button Container */
@@ -24,7 +26,8 @@ body {
 .welcome-message {
   font-weight: bold;
   margin-right: 10px;
-  color: #555;
+  color: #98c379;
+  /* Hoş geldin mesajı için yeşilimsi renk */
 }
 
 /* Big Button (Giriş Yap, Kaydol, Çıkış Yap) */
@@ -32,7 +35,8 @@ body {
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  background-color: #007bff;
+  background-color: #61afef;
+  /* Mavi tonu */
   color: white;
   cursor: pointer;
   font-size: 16px;
@@ -40,7 +44,7 @@ body {
 }
 
 .BB:hover {
-  background-color: #0056b3;
+  background-color: #528abd;
 }
 
 /* Title */
@@ -52,9 +56,10 @@ body {
 
 .tht h1 {
   font-size: 4em;
-  color: #4285f4;
+  color: #e06c75;
+  /* Kırmızımsı ton */
   font-family: 'Product Sans', Arial, sans-serif;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   letter-spacing: 1px;
 }
 
@@ -63,13 +68,23 @@ body {
   width: 60%;
   max-width: 700px;
   padding: 12px 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #444;
+  /* Koyu gri kenarlık */
   border-radius: 25px;
   font-size: 1.1em;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   margin-bottom: 20px;
   text-align: center;
   box-sizing: border-box;
+  background-color: #3e4451;
+  /* Koyu mavi-gri arkaplan */
+  color: #e0e0e0;
+  /* Açık gri metin */
+}
+
+#inputbox::placeholder {
+  color: #999;
+  /* Yer tutucu metin rengi */
 }
 
 /* Short Buttons (YouTube, Netflix, etc.) */
@@ -93,7 +108,8 @@ body {
   width: 70px;
   height: 70px;
   border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  /* Daha belirgin gölge */
 }
 
 .btns:hover {
@@ -103,14 +119,18 @@ body {
 /* --- Chat Container Styling --- */
 .chat {
   position: fixed;
+  /* Sabit konumlandırma */
   bottom: 20px;
   right: 20px;
   width: 350px;
   height: 450px;
-  background-color: #ffffff;
-  border: 1px solid #e0e0e0;
+  background-color: #3e4451;
+  /* Koyu mavi-gri arkaplan */
+  border: 1px solid #444;
+  /* Koyu kenarlık */
   border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  /* Daha belirgin gölge */
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -137,16 +157,19 @@ body {
 .chat-message .message-sender {
   font-weight: bold;
   margin-bottom: 3px;
-  color: #007bff;
+  color: #61afef;
+  /* Mavi tonu */
   font-size: 0.9em;
 }
 
 .chat-message .message-content {
-  background-color: #f1f0f0;
+  background-color: #4b5263;
+  /* Mesaj baloncuğu arkaplanı */
   padding: 8px 12px;
   border-radius: 15px;
   font-size: 1em;
-  color: #333;
+  color: #e0e0e0;
+  /* Açık gri metin */
 }
 
 .chat-message.my-message {
@@ -155,40 +178,55 @@ body {
 }
 
 .chat-message.my-message .message-sender {
-  color: #28a745;
+  color: #98c379;
+  /* Benim mesajım gönderici rengi (yeşilimsi) */
 }
 
 .chat-message.my-message .message-content {
-  background-color: #dcf8c6;
+  background-color: #56b6c2;
+  /* Benim mesajım baloncuğu arkaplanı (turkuaz) */
 }
 
 .no-messages {
   text-align: center;
-  color: #777;
+  color: #999;
   padding: 20px;
 }
 
 .message-input-area {
   display: flex;
   padding: 10px;
-  border-top: 1px solid #e0e0e0;
-  background-color: #f9f9f9;
+  border-top: 1px solid #444;
+  /* Üst kenarlık */
+  background-color: #3e4451;
+  /* Arkaplan */
 }
 
 #msgbox {
   flex-grow: 1;
   padding: 10px 15px;
-  border: 1px solid #ccc;
+  border: 1px solid #555;
+  /* Kenarlık */
   border-radius: 20px;
   margin-right: 10px;
   font-size: 1em;
+  background-color: #4b5263;
+  /* Arkaplan */
+  color: #e0e0e0;
+  /* Metin rengi */
+}
+
+#msgbox::placeholder {
+  color: #999;
+  /* Yer tutucu metin rengi */
 }
 
 .sendbtn {
   padding: 10px 20px;
   border: none;
   border-radius: 20px;
-  background-color: #28a745;
+  background-color: #98c379;
+  /* Yeşilimsi gönder butonu */
   color: white;
   cursor: pointer;
   font-size: 1em;
@@ -196,10 +234,10 @@ body {
 }
 
 .sendbtn:hover {
-  background-color: #218838;
+  background-color: #7aa168;
 }
 
-/* Loading and Error Screens */
+/* Loading and Error Screens - Night Mode */
 .loading-screen,
 .error-screen,
 .not-logged-in-screen {
@@ -209,15 +247,18 @@ body {
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background-color: #fff;
-  color: #555;
+  background-color: #282c34;
+  /* Koyu arkaplan */
+  color: #e0e0e0;
+  /* Açık metin */
   font-size: 1.5em;
   text-align: center;
 }
 
 .error-screen h2,
 .not-logged-in-screen h2 {
-  color: #dc3545;
+  color: #e06c75;
+  /* Kırmızımsı hata başlığı */
   margin-bottom: 15px;
 }
 
@@ -225,7 +266,8 @@ body {
 .not-logged-in-screen button {
   margin-top: 20px;
   padding: 10px 25px;
-  background-color: #007bff;
+  background-color: #61afef;
+  /* Mavi tonu */
   color: white;
   border: none;
   border-radius: 5px;
@@ -236,5 +278,5 @@ body {
 
 .error-screen button:hover,
 .not-logged-in-screen button:hover {
-  background-color: #0056b3;
+  background-color: #528abd;
 }
