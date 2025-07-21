@@ -180,21 +180,23 @@ function App() {
         <Bigbutton className="BB" text="Çıkış Yap" onClick={handleLogout} />
       </div>
 
-      <div className="tht">
-        <h1>BEGGTHO?</h1>
-      </div>
+      <div className="main-content">
+        <div className="tht">
+          <h1>BEGGTHO?</h1>
+        </div>
 
-      <Inputbox
-        placeholder="Bugun Ege ne yarrami yese?"
-        onChange={(e) => setSearch(e.target.value)}
-        id="inputbox"
-        value={search}
-      />
+        <Inputbox
+          placeholder="Bugun Ege ne yarrami yese?"
+          onChange={(e) => setSearch(e.target.value)}
+          id="inputbox"
+          value={search}
+        />
 
-      <div className="buttons-container">
-        <ShortButton className="btns" src="youtube.png" url="https://www.youtube.com" />
-        <ShortButton className="btns" src="https://png.co.ke/wp-content/uploads/2024/05/CITYPNG.COMNetflix-Vector-Flat-Logo-886x885-1.png" url="https://www.netflix.com" />
-        <ShortButton className="btns" src="https://img.icons8.com/?size=512&id=7vm2zjnwZxLc&format=png" url="https://himym-egg.vercel.app/" />
+        <div className="buttons-container">
+          <ShortButton className="btns" src="youtube.png" url="https://www.youtube.com" />
+          <ShortButton className="btns" src="https://png.co.ke/wp-content/uploads/2024/05/CITYPNG.COMNetflix-Vector-Flat-Logo-886x885-1.png" url="https://www.netflix.com" />
+          <ShortButton className="btns" src="https://img.icons8.com/?size=512&id=7vm2zjnwZxLc&format=png" url="https://himym-egg.vercel.app/" />
+        </div>
       </div>
 
       <div className='chat' ref={chatRef}>

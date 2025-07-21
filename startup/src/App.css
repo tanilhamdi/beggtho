@@ -59,13 +59,22 @@ body {
   background-color: #528abd;
 }
 
-/* Title - Güncellenmiş */
-.tht {
-  margin-top: 50px;
-  margin-bottom: 30px;
+/* Main Content Wrapper */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  /* Ortalamak için genişlik */
+  flex-grow: 1; /* Gerekli alanı kaplamasını sağlar */
+}
+
+/* Title - Güncellenmiş */
+.tht h1 {
+  font-size: 8rem; /* Boyutu önemli ölçüde artırıldı */
   color: #98c379;
+  margin-top: 0; /* Üstteki boşluk kaldırıldı */
+  margin-bottom: 30px;
 }
 
 
