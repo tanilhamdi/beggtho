@@ -1,5 +1,5 @@
-import React, { useStimport React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import "./App.css";
 
 function Inputbox({ type, onChange, className }) {
@@ -64,7 +64,7 @@ function Signup() {
       <br />
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <button id="lgin" onClick={handleSignup}>Kaydol</button>
-      <p>Zaten hesabın var mı? <a href="/login">Giriş Yap</a></p>
+      <p>Zaten hesabın var mı? <Link to="/login">Giriş Yap</Link></p>
     </div>
   );
 }
