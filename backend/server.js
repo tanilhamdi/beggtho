@@ -30,7 +30,7 @@ app.use(cookieParser());
 
 app.use(cors({
   // Burası güncellendi: Frontend'inizin Render üzerindeki URL'i
-  origin: process.env.NODE_ENV === 'production' ? 'https://beggtho-frontend.onrender.com' : 'http://localhost:3000',
+  origin: process.env.NODE_ENV === 'production' ? 'https://beggtho.onrender.com' : 'http://localhost:3000',
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
