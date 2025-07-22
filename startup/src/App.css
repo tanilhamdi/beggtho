@@ -164,6 +164,26 @@ body {
   gap: 10px;
 }
 
+/* Şık Kaydırma Çubuğu Stilleri */
+.chat-messages::-webkit-scrollbar {
+  width: 8px; /* Kaydırma çubuğu genişliği */
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: #3e4451; /* Yolun arka planı (sohbet kutusuyla aynı) */
+  border-radius: 10px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background-color: #56b6c2; /* Tutamacın rengi (turkuaz) */
+  border-radius: 10px;
+  border: 2px solid #3e4451; /* Tutamacın etrafında boşluk oluşturur */
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover {
+  background-color: #61d4e2; /* Üzerine gelindiğinde daha parlak turkuaz */
+}
+
 .chat-message {
   display: flex;
   flex-direction: column;
