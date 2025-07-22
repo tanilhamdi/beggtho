@@ -21,7 +21,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Dikeyde ortalamak için eklendi */
+  justify-content: center;
+  /* Dikeyde ortalamak için eklendi */
   flex-grow: 1;
   /* İçeriğin dikeyde yayılmasını sağlar */
 }
@@ -70,18 +71,24 @@ body {
 
 /* Title - Güncellenmiş */
 .tht h1 {
-  font-size: 8rem; /* Boyutu önemli ölçüde artırıldı */
+  font-size: 8rem;
+  /* Boyutu önemli ölçüde artırıldı */
   color: #98c379;
-  margin-top: 0; /* Üstteki boşluk kaldırıldı */
+  margin-top: 0;
+  /* Üstteki boşluk kaldırıldı */
   margin-bottom: 30px;
-  text-align: center; /* Metnin kesin olarak ortalanmasını sağlar */
+  text-align: center;
+  /* Metnin kesin olarak ortalanmasını sağlar */
 }
 
 
 /* Input Box (Search Bar) */
 #inputbox {
-  width: 100%; /* Genişliği başlıkla aynı hizaya getirir */
-  padding: 12px 25px; /* Sol boşluk artırıldı */
+  width: 100%;
+  /* Genişliği başlıkla aynı hizaya getirir */
+  padding: 12px 25px;
+  /* Sol boşluk artırıldı */
+  height: 50px;
   border: 1px solid #444;
   /* Koyu gri kenarlık */
   border-radius: 25px;
@@ -89,7 +96,8 @@ body {
   outline: none;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   margin-bottom: 20px;
-  text-align: left; /* Metni sola hizalar */
+  text-align: left;
+  /* Metni sola hizalar */
   box-sizing: border-box;
   background-color: #3e4451;
   /* Koyu mavi-gri arkaplan */
@@ -158,7 +166,8 @@ body {
 .chat-messages {
   flex-grow: 1;
   padding: 15px;
-  overflow-y: auto; /* Kaydırma burada olacak */
+  overflow-y: auto;
+  /* Kaydırma burada olacak */
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -166,22 +175,27 @@ body {
 
 /* Şık Kaydırma Çubuğu Stilleri */
 .chat-messages::-webkit-scrollbar {
-  width: 8px; /* Kaydırma çubuğu genişliği */
+  width: 8px;
+  /* Kaydırma çubuğu genişliği */
 }
 
 .chat-messages::-webkit-scrollbar-track {
-  background: #3e4451; /* Yolun arka planı (sohbet kutusuyla aynı) */
+  background: #3e4451;
+  /* Yolun arka planı (sohbet kutusuyla aynı) */
   border-radius: 10px;
 }
 
 .chat-messages::-webkit-scrollbar-thumb {
-  background-color: #56b6c2; /* Tutamacın rengi (turkuaz) */
+  background-color: #56b6c2;
+  /* Tutamacın rengi (turkuaz) */
   border-radius: 10px;
-  border: 2px solid #3e4451; /* Tutamacın etrafında boşluk oluşturur */
+  border: 2px solid #3e4451;
+  /* Tutamacın etrafında boşluk oluşturur */
 }
 
 .chat-messages::-webkit-scrollbar-thumb:hover {
-  background-color: #61d4e2; /* Üzerine gelindiğinde daha parlak turkuaz */
+  background-color: #61d4e2;
+  /* Üzerine gelindiğinde daha parlak turkuaz */
 }
 
 .chat-message {
