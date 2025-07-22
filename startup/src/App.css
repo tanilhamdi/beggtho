@@ -21,6 +21,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center; /* Dikeyde ortalamak için eklendi */
   flex-grow: 1;
   /* İçeriğin dikeyde yayılmasını sağlar */
 }
@@ -64,9 +65,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-align: center;
-  flex-grow: 1; /* Gerekli alanı kaplamasını sağlar */
 }
 
 /* Title - Güncellenmiş */
