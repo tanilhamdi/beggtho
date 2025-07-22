@@ -151,14 +151,14 @@ body {
   /* Daha belirgin gölge */
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  /* overflow: hidden; Bu satır kaldırıldı */
   z-index: 1000;
 }
 
 .chat-messages {
   flex-grow: 1;
   padding: 15px;
-  overflow-y: auto;
+  overflow-y: auto; /* Kaydırma burada olacak */
   display: flex;
   flex-direction: column;
   gap: 10px;

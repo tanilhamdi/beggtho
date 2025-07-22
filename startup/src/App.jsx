@@ -199,17 +199,19 @@ function App() {
         </div>
       </div>
 
-      <div className='chat' ref={chatRef}>
-        {messages.length === 0 ? (
-          <p className="no-messages">Henüz mesaj yok. İlk mesajı sen gönder!</p>
-        ) : (
-          messages.map((item, index) => (
-            <div key={index} className={`chat-message ${item.name === currentUser.username ? 'my-message' : ''}`}>
-              <span className="message-sender">{item.name}:</span>
-              <span className="message-content">{item.message}</span>
-            </div>
-          ))
-        )}
+      <div className='chat'>
+        <div className="chat-messages" ref={chatRef}>
+          {messages.length === 0 ? (
+            <p className="no-messages">Henüz mesaj yok. İlk mesajı sen gönder!</p>
+          ) : (
+            messages.map((item, index) => (
+              <div key={index} className={`chat-message ${item.name === currentUser.username ? 'my-message' : ''}`}>
+                <span className="message-sender">{item.name}:</span>
+                <span className="message-content">{item.message}</span>
+              </div>
+            ))
+          )}
+        </div>
         <div className="message-input-area">
           <input
             value={sentmes}
