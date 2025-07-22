@@ -122,7 +122,7 @@ app.post('/api/login', async (req, res) => {
     const token = jwt.sign(
       { id: user._id, username: user.username },
       JWT_SECRET,
-      { expiresIn: '1h' }
+      {}
     );
 
     res.cookie('jwt', token, {
@@ -168,7 +168,7 @@ app.post('/api/signin', async (req, res) => {
     const token = jwt.sign(
       { id: savedUser._id, username: savedUser.username },
       JWT_SECRET,
-      { expiresIn: '1h' }
+      {}
     );
 
     res.cookie('jwt', token, {
