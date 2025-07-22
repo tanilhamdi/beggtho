@@ -75,13 +75,14 @@ body {
   color: #98c379;
   margin-top: 0; /* Üstteki boşluk kaldırıldı */
   margin-bottom: 30px;
+  text-align: center; /* Metnin kesin olarak ortalanmasını sağlar */
 }
 
 
 /* Input Box (Search Bar) */
 #inputbox {
-  width: 500px;
-  padding: 12px 20px;
+  width: 100%; /* Genişliği başlıkla aynı hizaya getirir */
+  padding: 12px 25px; /* Sol boşluk artırıldı */
   border: 1px solid #444;
   /* Koyu gri kenarlık */
   border-radius: 25px;
@@ -89,7 +90,7 @@ body {
   outline: none;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   margin-bottom: 20px;
-  text-align: center;
+  text-align: left; /* Metni sola hizalar */
   box-sizing: border-box;
   background-color: #3e4451;
   /* Koyu mavi-gri arkaplan */
